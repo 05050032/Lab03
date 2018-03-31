@@ -1,0 +1,28 @@
+0      599.94   0.37
+0.5    824.70   0.50
+1      1779.67  1.09
+1.5    2463.79  1.5
+2      3308.6   2.02
+2.5    4071.5   2.49
+
+
+
+float Analogin = 0;
+float k;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(14,INPUT);
+  
+}
+
+void loop(){
+  int i;
+  for(i=0;i<=5;i++)
+  Analogin = 0.7*Analogin + 0.3*analogRead(14);
+  k=Analogin*2.5/4095;
+  Serial.println(Analogin);
+  Serial.println(k);
+  delay(500);
+  
+}
